@@ -33,8 +33,7 @@ class ToiCrawlerSpider(BaseSpider):
             w['title'] = title
             content = hxs.select('//tmp//text()').extract()
             content =  ''.join(content)
-            content1 = str(content)
-            if content1.find('a') == -1:
+            if content.find('a') == -1:
                  con = hxs.select('//div[contains(@class,"Normal")]')
                  if len(con) > 1:
                      self.links_with_error.append(currentURL)
