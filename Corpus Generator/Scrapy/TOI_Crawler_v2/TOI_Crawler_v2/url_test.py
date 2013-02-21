@@ -19,4 +19,6 @@ from url_generator import URL_gen
 #===============================================================================
     
 urlgen = URL_gen(1, 1, 2001, 1, 2, 2001, 36892)
-print urlgen.fetch_all()
+t = urlgen.fetch_all()
+y = urllib.urlopen(t[0]).read()
+print y
