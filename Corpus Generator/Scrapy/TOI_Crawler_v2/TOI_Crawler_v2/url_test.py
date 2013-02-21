@@ -4,7 +4,7 @@ Created on Feb 21, 2013
 @author: ayush
 '''
 import urllib
-from TOI_Crawler_v2.url_generator import URL_gen
+from url_generator import URL_gen
 
 #===============================================================================
 # urlgen = URL_gen(1, 1, 2001, 1, 2, 2001, 36892)
