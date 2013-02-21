@@ -22,3 +22,11 @@ class URL_gen():
             return link
         else:
             return None
+
+    def fetch_all(self):
+        ls = []
+        x = self.fetch()
+        while not x is None:
+            ls.append(x)
+            x = self.fetch()
+        return ls

@@ -2,6 +2,7 @@ from scrapy.spider import BaseSpider
 from scrapy.selector import HtmlXPathSelector
 from scrapy.http import Request
 from TOI_Crawler_v2.items import ToiCrawlerV2Item
+from TOI_Crawler_v2.url_generator import URL_gen
 from scrapy.exceptions import CloseSpider
 import os
 
