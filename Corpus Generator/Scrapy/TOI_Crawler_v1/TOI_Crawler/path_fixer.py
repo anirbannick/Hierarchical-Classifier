@@ -17,7 +17,7 @@ def fix_path(path):
     while idx != -1:
         try:
             if not os.path.exists(path[:idx]):
-                os.makedirs(path)
+                os.makedirs(path[:idx])
             idx = path.find('/', idx + 1)
         except:
             sys.exit("Unable to create path: " + path[:idx + 1])
