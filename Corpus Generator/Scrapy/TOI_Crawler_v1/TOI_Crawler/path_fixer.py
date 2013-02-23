@@ -21,3 +21,7 @@ def fix_path(path):
             idx = path.find('/', idx + 1)
         except:
             sys.exit("Unable to create path: " + path[:idx + 1])
+
+
+
+

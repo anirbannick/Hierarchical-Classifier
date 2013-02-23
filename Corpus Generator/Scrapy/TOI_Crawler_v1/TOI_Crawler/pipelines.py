@@ -39,4 +39,6 @@ class ToiCrawlerPipeline(object):
                 print "\n\nSaved data:\n"
             print str(self.j) + '\t' + item_dict['title'][0]
             file.write(line)
+            
+            
         return item
