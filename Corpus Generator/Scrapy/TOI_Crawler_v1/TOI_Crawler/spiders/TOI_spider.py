@@ -1,3 +1,25 @@
+#
+#   Created By Anirban Das
+#   Date - 16 January 2013
+#
+#
+#   This is the spider that will crawl any seed page given as input
+#
+#   name of the spider is Toi
+#  
+#    To run the spider
+#   type $ scrapy crawl Toi
+#   
+#  make sure you are in the scrapy directory otherwise you will not be
+#   to crawl
+#
+#
+
+
+
+
+
+
 from scrapy.spider import BaseSpider
 from scrapy.selector import HtmlXPathSelector
 from scrapy.http import Request
