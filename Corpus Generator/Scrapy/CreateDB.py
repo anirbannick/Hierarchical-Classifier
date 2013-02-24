@@ -1,3 +1,19 @@
+# Created By Anirban Das
+#  Date- 23 February 2013
+#
+#  The Database Schema :
+#  Attributes( slNo INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+#              relative_path  VARCHAR(200) NOT NULL,
+#              broad_category  VARCHAR(20) NOT NULL,
+#              sub_category    VARCHAR(20) NOT NULL,
+#              predicted_broad_category  VARCHAR(20),
+#              predicted_sub_category   VARCHAR(20),
+#              set   VARCHAR(5) )
+#
+#
+
+
+
 import MySQLdb as mdb
 import sys
 import os
