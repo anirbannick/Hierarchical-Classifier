@@ -1,7 +1,14 @@
+# 
+# Created By Anirban Das
+# Date 16 January 2013
+#
+#
 # Define your item pipelines here
 #
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: http://doc.scrapy.org/topics/item-pipeline.html
+#
+#
 
 from scrapy.exceptions import DropItem
 from TOI_Crawler.path_fixer import fix_path

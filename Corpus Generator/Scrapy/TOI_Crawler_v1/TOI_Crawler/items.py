@@ -1,7 +1,16 @@
+#
+# Created By Anirban Das
+# Date 16 January 2013
+#
+#
 # Define here the models for your scraped items
 #
 # See documentation in:
 # http://doc.scrapy.org/topics/items.html
+#
+#
+
+
 
 from scrapy.item import Item, Field
 

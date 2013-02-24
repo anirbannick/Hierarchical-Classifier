@@ -1,3 +1,8 @@
+# 
+# Created By Anirban Das
+# Date - 16 January 2013
+# 
+#
 # Scrapy settings for TOI_Crawler project
 #
 # For simplicity, this file contains only the most important settings by
@@ -5,6 +10,10 @@
 #
 #     http://doc.scrapy.org/topics/settings.html
 #
+#
+
+
+
 
 BOT_NAME = 'TOI_Crawler'
 
