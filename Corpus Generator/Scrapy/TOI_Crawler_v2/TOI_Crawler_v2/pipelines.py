@@ -5,38 +5,48 @@
 
 from scrapy.exceptions import DropItem
 from TOI_Crawler_v2.path_fixer import fix_path
+import os
+import categories
 import json
 
 class ToiCrawlerV2Pipeline(object):
 
     def __init__(self):
         self.j = 0
+        self.start = 1
         print "\nEnter ABSOLUTE path of top directory of Corpus:",
         self.path = raw_input()
         if self.path[-1] == '/':
             self.path = self.path[:-1]
-        print "\nEnter broad category:",
-        broad = raw_input()
-        print "\nEnter specific category:",
-        specific = raw_input()
-        self.category = broad + '/' + specific
-        complete_path = self.path + '/' + broad + '/' + specific
-        fix_path(complete_path)
-        print "\nEnter limit on number of articles to be saved:",
-        self.limit = int(raw_input())
+        
+        self.limit = int(raw_input("Enter limit: "))
+        categories.init()
+        for i in categories.category:
+            complete_path = self.path + '/' + i
+            fix_path(complete_path)
         print        
     
     def process_item(self, item, spider):
-        if self.j == self.limit and not spider.close_down:
+        if len(categories.category) == 0  and not spider.close_down:
             print "\n\nTask Successfully completed!\n"
             spider.close_down = True
         else:
-            self.j = self.j + 1
-            file = open('%s/%s/%s.jl' % (self.path, self.category, self.j), 'wb')
             item_dict = dict(item)
-            line = json.dumps(item_dict) + "\n"
-            if self.j == 1:
-                print "\n\nSaved data:\n"
-            print str(self.j) + '\t' + item_dict['title'][0]
-            file.write(line)
+            url = item_dict['url']
+            for i in categories.category:
+                if self.j <= self.limit:
+                    if url.find(i) != -1:
+                        self.category = i
+                        categories.category[i] = categories.category[i] + 1
+                        self.j = categories.category[i]
+                        file = open('%s/%s/%s.jl' % (self.path, self.category, self.j), 'wb')
+                        line = json.dumps(item_dict) + "\n"
+                        if self.start == 1:
+                            print "\n\nSaved data:\n"
+                            self.start = 2
+                        print str(self.j) + '\t' + item_dict['title'][0]
+                        file.write(line)
+                        break
+                else:
+                    categories.category.pop(i)                    
         return item
